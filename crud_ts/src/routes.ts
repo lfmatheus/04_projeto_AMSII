@@ -30,7 +30,7 @@ router.get('/item', (req, res) => {
 });
 
 router.get('/leitura', (req, res) => {
-  const id = req.query.id;
+  const {id} = req.query;
 
   if (!id) {
     return res.status(400).send('ID parameter is required');
