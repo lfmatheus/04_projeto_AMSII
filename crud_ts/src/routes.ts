@@ -43,7 +43,7 @@ router.get('/leitura', (req, res) => {
       return res.status(500).send('Internal Server Error');
     }
 
-    if (result.length === id) {
+    else {
       return res.status(404).send(result);
     }
 
