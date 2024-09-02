@@ -37,18 +37,18 @@ router.get('/leitura', (req, res) => {
   }
 
   // Consulta SQL para buscar o item pelo ID
-  connection.query('SELECT * FROM items WHERE id = ?', [id], (err, results) => {
+  connection.query('SELECT * FROM items WHERE id = ?', [id], (err, result) => {
     if (err) {
       console.error('Database query error:', err);
       return res.status(500).send('Internal Server Error');
     }
 
-    if (results.length === 0) {
-      return res.status(404).send('No item found with the provided ID');
+    if (result.length === 0) {
+      return res.status(404).send(result);
     }
 
     // Retorna o item encontrado
-    res.json(results[0]);
+    res.json(result[0]);
   });
 });
 
